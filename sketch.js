@@ -1,13 +1,29 @@
 function setup() {
-    createCanvas(400, 400)
-    console.log(A*)
+    createCanvas(400,400)
+    console.log('A*, A-STAR')
 
     // Grid cell size
     w = width / cols
     h = height / rows
 
-    // Making a 2D array
-    for (let i =0; i< cols; i++)
+    var cols = 50
+    var rows = 50
+
+    var openSet =  []
+    var closeSet = []
+    
+    // Start and end points
+    var start, end
+
+    // Width and height of each cell block
+    var w, h
+
+    // Traversal path (optimal or any?)
+    var path = []
+
+    // Create the grid (2D) Array
+    var grid = new Array(cols)
+    for (let i = 0; i<cols; i++)
     {
 	grid[i] = new Array(rows)
     }
@@ -20,7 +36,6 @@ function setup() {
 	}
     }
 
-    // All neighbors
     for (let i=0; i<cols; i++)
     {
 	for (let j=0; j<rows; j++)
@@ -28,13 +43,13 @@ function setup() {
 	    grid[i][j].addNeighbors(grid)
 	}
     }
-    
-    // Start and end
+
+    // Define the start and end of where to travers
     start = grid[0][0]
     end = grid[cols-1][rows-1]
-    start.wall = false
-    end.wall = false
+    start.isWall = false
+    end.isWall = false
 
-    // openSet starts with beginning only
+    // Add the starting node only to the openSet array
     openSet.push(start)
 }
