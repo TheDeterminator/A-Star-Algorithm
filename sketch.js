@@ -3,6 +3,11 @@ function heuristic(a, b) {
     var distance = dist(a.i, a.j, b,i, b.j)
     return distance
 }
+
+function removeFromArray(array, element) {
+    array.splice(indexOf(element), 1)
+}
+
 function setup() {
     createCanvas(400,400)
     console.log('A*, A-STAR')
