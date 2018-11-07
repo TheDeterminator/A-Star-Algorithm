@@ -1,3 +1,8 @@
+// An "educated" guess of the distance from a to b, the linear distance
+function heuristic(a, b) {
+    var distance = dist(a.i, a.j, b,i, b.j)
+    return distance
+}
 function setup() {
     createCanvas(400,400)
     console.log('A*, A-STAR')
@@ -52,4 +57,7 @@ function setup() {
 
     // Add the starting node only to the openSet array
     openSet.push(start)
+}
+
+function draw() {
 }
